@@ -15,13 +15,26 @@
                 </v-card>
     </v-col>
  
-    
+    <v-col cols="12" lg="6" sm="12">
+        <v-card>
+            <v-card-title>{{artData.titleText}}</v-card-title>
+            <v-card-subtitle>{{artData.classification}}</v-card-subtitle>
+            <v-card-text>
+                <v-img :src="artData.imageLink"/>
+            </v-card-text>
+
+
+            <v-card-title>{{artData}}</v-card-title>
+        </v-card>
+    </v-col>
     </v-row>
 </v-container>
 </template>
 
 <script>
 import { QrcodeStream} from 'vue-qrcode-reader'
+import axios from 'axios'
+
 export default {
   components: { QrcodeStream },
   data () {
@@ -31,14 +44,21 @@ export default {
       result: { 
         },
       error: '',
+      artData: {
+
+      }
     
     }
   },
   methods: {
-    onDecode (result) {
+    async onDecode (result) {
       this.result = result;
       console.log(this.result)
       this.haveScan = true;
+      axios
+      .get('https://nftw.mypinata.cloud/ipfs/' + this.result)
+      .then(response => (this.artData = response.data))
+        console.log(this.artData)
     },
     async onInit (promise) {
       try {

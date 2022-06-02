@@ -20,8 +20,7 @@
             </v-col>
             <v-col cols="12" sm="6">
                 <v-card>
-                    <v-card-title>Image</v-card-title>
-                    <v-img :src="ImageFile"></v-img>
+                    <qr-generator tokenAddress="QmYhZfhKbjSQweacfzCyAAHXtzbHUbLYeVrz9CoijDXG6L"/>
                 </v-card>
             </v-col> 
         </v-row>
@@ -31,9 +30,10 @@
 
 <script>
 import CdwaNftwSchema from '@/assets/CDWA-NFTW-schema.json'
+import QrGenerator from "../components/QrGenerator.vue"
 export default {
     name: 'TokenForm',
-  components: {  },
+  components: {  QrGenerator },
   data () {
     return {
         ImageFile: {},

@@ -1,0 +1,32 @@
+{
+    "titleText" : "Watermelon Girl",
+    "classification" : "Photo", 
+    "imageLink" : "https://nftw.mypinata.cloud/ipfs/QmX8aqQfqED84SwucgXPRa54rZECJ3QaFQJq8Pdjbv3J7n",
+
+        "objectWork" : {
+        "catalogLevel": "item",
+        "objectWorkType": "Photograph"
+    },
+    "creation" : {
+        "creatorDescription" : "The Creator of NFTW-art.world",
+        "creatorIdentity" : "Mitchell Valentine",
+        "creatorRole" : "Artist",
+        "creation-date" : "June 13, 2018"
+    },
+    "measurements" : {
+        "dimensionsDescription" : "3024px × 3743px in jpg format"
+    },
+    "materialsAndTechniques" : {
+        "materialsTechniquesDescription" : "Digital Photograph"
+    },
+    "subjectMatter" : {
+        "generalSubjectTerms" : "girl, lake, watermelon, storm"
+    },
+    "currentLocation" : {
+        "repositoryGeographicLocation" : "Santiago's Castle",
+        "repositoryNumbers" : "QmX8aqQfqED84SwucgXPRa54rZECJ3QaFQJq8Pdjbv3J7n"
+    },
+    "relatedTextualReferences" : {
+        "sourceBriefCitation" : "NFT Era"
+    }    
+}
