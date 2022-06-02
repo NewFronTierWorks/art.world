@@ -1,2 +1,24 @@
-# art.world
-NFTW-art.world allows museums, galleries and private collectors to tokenize art works using the CDWA standard, IPFS data storage and Tezos blockchain technology for ownership proofs.
+# art-world
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
