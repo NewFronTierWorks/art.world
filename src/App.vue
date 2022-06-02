@@ -5,9 +5,9 @@
       color="black"
       dark
     >
-      <div class="d-flex align-center">
+      <v-btn class="d-flex align-center" to="/">
       NFTW-art.world
-      </div>
+      </v-btn>
 
       <v-spacer></v-spacer>
 
