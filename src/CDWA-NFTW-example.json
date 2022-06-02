@@ -1,0 +1,59 @@
+[
+    {
+        "object-work" : {
+            "catalog-level": "",
+            "object-work-type": "",
+            "components-parts": "",
+            "remarks": ""
+        },
+        "classification" : "",
+        "titles-or-names" : {
+            "title-text" : "",
+            "title-type" : "",
+            "preference" : "",
+            "title-language" : "",
+            "title-date" : "",
+            "citations" : ""
+        },
+        "creation" : {
+            "creator-description" : "",
+            "creator-role" : "",
+            "creation-date" : ""
+        },
+        "measurements" : {
+            "dimensions-description" : ""
+        },
+        "materials-and-techniques" : {
+            "materials-techniques-description" : ""
+        },
+        "subject-matter" : {
+            "general-subject-terms" : ""
+        },
+        "current-location" : {
+            "repository-geographic-location" : "",
+            "repository-numbers" : ""
+        },
+        "person-corporate-body-authority" : {
+            "person-corporate-body-name" : "",
+            "name-source" : "",
+            "display-biography" : "",
+            "birth-date" : "",
+            "death-date" : "",
+            "person-nationality-culture-race" : "",
+            "life-roles" : ""
+        },
+        "place-location-authority" : {
+            "name-source" : "",
+            "place-types" : ""
+        },
+        "general-concept-authority" : {
+            "term-source" : "",
+            "concept-broader-context" : ""
+        },
+        "subject-authority" : {
+            "subject-name" : "",
+            "name-source" : "",
+            "subject-broader-contet" : ""
+        }
+    }
+]
