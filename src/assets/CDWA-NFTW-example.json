@@ -1,5 +1,8 @@
-[
-    {
+{
+    "artwork" : {
+        "nft-specific-values" : {
+            "image" : "Valid CID for pinned image file on IPFS"
+        },
         "category" : {
             "category" : "",
             "subcategory" : ""
@@ -63,4 +66,4 @@
             "subject-broader-contet" : "An identification of the broader contexts for the subject. Ideally this is a hierarchical link (e.g., Battle of Bull Run (American Civil War))."
         }
     }
-]
+}
