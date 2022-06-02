@@ -3,10 +3,6 @@
         "nft-specific-values" : {
             "image" : "Valid CID for pinned image file on IPFS"
         },
-        "category" : {
-            "category" : "",
-            "subcategory" : ""
-        },
         "object-work" : {
             "catalog-level": "An indication of the level of cataloging represented by the record, based on the physical form or intellectual content of the material (e.g., group, subgroup, volume, item, first-level).",
             "object-work-type": "The kind of object or work described (e.g., refectory table, altarpiece, portfolio, drawing, drinking vessel, basilica, dome)."
