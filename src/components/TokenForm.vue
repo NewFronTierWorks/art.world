@@ -1,26 +1,45 @@
 <template>
     <v-container>
-        <v-card width="420px">
-            <v-card-title>Create Token</v-card-title>
-            <v-card-text>
-                <v-text-field label="Title"></v-text-field>
-                <v-text-field label="Artist"></v-text-field>
+        <v-row>
+            <v-col cols="12" sm="6">
+                <v-card width="420px">
+                    <v-card-title>Create Token</v-card-title>
+                    <v-card-text>
+                        <v-text-field label="Title Text" :value="NftToMint.titleText" :hint="formSchema.titleText"></v-text-field>
+                        <v-text-field label="Artist"></v-text-field>
 
-                {{formSchema}}
-            </v-card-text>
-        </v-card>
+                        <v-file-input 
+                            v-model="ImageFile"
+                            accept="image/*"
+                        ></v-file-input>
+                        {{ImageFile}}
+
+                    </v-card-text>
+                </v-card>
+
+            </v-col>
+            <v-col cols="12" sm="6">
+                <v-card>
+                    <v-card-title>Image</v-card-title>
+                    <v-img :src="ImageFile"></v-img>
+                </v-card>
+            </v-col> 
+        </v-row>
     </v-container>
 </template>
 
 
 <script>
-import CdwaNftw from '@/assets/CDWA-NFTW-example.json'
+import CdwaNftwSchema from '@/assets/CDWA-NFTW-schema.json'
 export default {
     name: 'TokenForm',
   components: {  },
   data () {
     return {
-        CdwaNftw: {}
+        ImageFile: {},
+        NftToMint: {
+            titleText : ""
+        }
     }
   },
   mounted () {
@@ -31,7 +50,10 @@ export default {
   },
   computed: {
       formSchema () {
-         return CdwaNftw
+         return CdwaNftwSchema
+      },
+      ImageToUpload () {
+          return this.ImageFile
       }
 
   }
