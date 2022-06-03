@@ -1,5 +1,8 @@
 <template>
+<v-container>
   <qr-scanner/>
+</v-container>
+
 </template>
 
 <script>
@@ -9,7 +12,7 @@
     name: 'HomeView',
 
     components: {
-      QrScanner,
+      QrScanner
     },
   }
 </script>

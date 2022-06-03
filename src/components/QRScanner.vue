@@ -1,97 +1,104 @@
 <template>
-<v-container fluid >
-<v-row class="pa-8">
-    <v-col cols="12" lg="6" sm="12">
+  <v-container fluid>
+    <v-row class="pa-8">
+      <v-col cols="12" lg="6" sm="12">
         <v-card v-show="haveScan">
-            <v-card-title>{{artData.titleText}}</v-card-title>
-            <v-card-subtitle>{{artData.classification}}</v-card-subtitle>
-            <v-card-text>
-                <a :href="artData.imageLink" target="_blank">
-                    <v-img :src="artData.imageLink"/>
-                </a>
-            </v-card-text>
-            <v-card-text>
-                <h2>By {{artData.creatorIdentity}} - {{artData.creatorRole}}</h2>
-                <h3>{{artData.creationDate}}</h3>
-            </v-card-text>
+          <v-card-title>{{ artData.titleText }}</v-card-title>
+          <v-card-subtitle>{{ artData.classification }}</v-card-subtitle>
+          <v-card-text>
+            <a :href="artData.imageLink" target="_blank">
+              <v-img :src="artData.imageLink" />
+            </a>
+          </v-card-text>
+          <v-card-text>
+            <h2>
+              By {{ artData.creatorIdentity }} - {{ artData.creatorRole }}
+            </h2>
+            <h3>{{ artData.creationDate }}</h3>
+          </v-card-text>
         </v-card>
-        <v-card  dark class="pa-5 mt-3" v-show="haveScan">
-            <h2  class="decode-result">Scan Result:<br> <b>{{ result }}</b></h2>
-    
+        <v-card dark class="pa-5 mt-3" v-show="haveScan">
+          <h2 class="decode-result">
+            Scan Result:<br />
+            <b>{{ result }}</b>
+          </h2>
         </v-card>
-    </v-col>
-    <v-col cols="12" lg="6" sm="12">
-    <v-card class="mb-3">
-    </v-card>
+      </v-col>
+      <v-col cols="12" lg="6" sm="12">
+        <v-card class="mb-3"> </v-card>
         <v-card class="pa-5 mx-auto" max-width="600px">
-            <v-card-title>Artwork Code Scanner</v-card-title>
-            <p class="error">{{ error }}</p>
+          <v-card-title>Artwork Code Scanner</v-card-title>
+          <p class="error">{{ error }}</p>
 
-            <qrcode-stream @decode="onDecode" @init="onInit" />
-            <h4 v-show="!haveScan" class="mt-2">Please scan the QR Code located on each artwork description to capture the IPFS address of the metadata for the digital version of this work.</h4>
-            <h4 v-show="haveScan" class="mt-2">Scan Another Artwork</h4>
-        </v-card > 
-    </v-col>
- 
+          <qrcode-stream @decode="onDecode" @init="onInit" />
+          <h4 v-show="!haveScan" class="mt-2">
+            Please scan the QR Code located on each artwork description to
+            capture the IPFS address of the metadata for the digital version of
+            this work.
+          </h4>
+          <h4 v-show="haveScan" class="mt-2">Scan Another Artwork</h4>
+
+        </v-card>
+      </v-col>
     </v-row>
-</v-container>
+  </v-container>
 </template>
 
 <script>
-import { QrcodeStream} from 'vue-qrcode-reader'
-import axios from 'axios'
+import { QrcodeStream } from "vue-qrcode-reader";
+import axios from "axios";
 
 export default {
   components: { QrcodeStream },
-  data () {
+  data() {
     return {
       validJWT: false,
-        haveScan: false,
-      result: { 
-        },
-      error: '',
-      artData: {
-
+      haveScan: false,
+      result: {},
+      error: "",
+    };
+  },
+  computed: {
+      artData () {
+          return this.$store.state.scannedArtwork
       }
-    
-    }
   },
   methods: {
-    async onDecode (result) {
+    async onDecode(result) {
       this.result = result;
-      console.log(this.result)
+      console.log(this.result);
       this.haveScan = true;
       axios
-      .get('https://nftw.mypinata.cloud/ipfs/' + this.result)
-      .then(response => (this.artData = response.data))
-        console.log(this.artData)
+        .get("https://nftw.mypinata.cloud/ipfs/" + this.result)
+        .then((response) => (this.$store.state.scannedArtwork = response.data));
+        this.artData = this.$store.state.scannedArtwork;
     },
-    async onInit (promise) {
+    async onInit(promise) {
       try {
-        await promise
+        await promise;
       } catch (error) {
-        if (error.name === 'NotAllowedError') {
-          this.error = "ERROR: you need to grant camera access permission"
-        } else if (error.name === 'NotFoundError') {
-          this.error = "ERROR: no camera on this device"
-        } else if (error.name === 'NotSupportedError') {
-          this.error = "ERROR: secure context required (HTTPS, localhost)"
-        } else if (error.name === 'NotReadableError') {
-          this.error = "ERROR: is the camera already in use?"
-        } else if (error.name === 'OverconstrainedError') {
-          this.error = "ERROR: installed cameras are not suitable"
-        } else if (error.name === 'StreamApiNotSupportedError') {
-          this.error = "ERROR: Stream API is not supported in this browser"
-        } else if (error.name === 'InsecureContextError') {
-          this.error = 'ERROR: Camera access is only permitted in secure context. Use HTTPS or localhost rather than HTTP.';
+        if (error.name === "NotAllowedError") {
+          this.error = "ERROR: you need to grant camera access permission";
+        } else if (error.name === "NotFoundError") {
+          this.error = "ERROR: no camera on this device";
+        } else if (error.name === "NotSupportedError") {
+          this.error = "ERROR: secure context required (HTTPS, localhost)";
+        } else if (error.name === "NotReadableError") {
+          this.error = "ERROR: is the camera already in use?";
+        } else if (error.name === "OverconstrainedError") {
+          this.error = "ERROR: installed cameras are not suitable";
+        } else if (error.name === "StreamApiNotSupportedError") {
+          this.error = "ERROR: Stream API is not supported in this browser";
+        } else if (error.name === "InsecureContextError") {
+          this.error =
+            "ERROR: Camera access is only permitted in secure context. Use HTTPS or localhost rather than HTTP.";
         } else {
           this.error = `ERROR: Camera error (${error.name})`;
         }
       }
     },
-   
   },
-}
+};
 </script>
 
 <style scoped>
@@ -99,9 +106,19 @@ export default {
   font-weight: bold;
   color: red;
 }
-.Red {background: #c00000;}
-.Gold {background: gold;}
-.Purple {background: purple;}
-.Black {background: black;}
-.Undefined {background: green;}
+.Red {
+  background: #c00000;
+}
+.Gold {
+  background: gold;
+}
+.Purple {
+  background: purple;
+}
+.Black {
+  background: black;
+}
+.Undefined {
+  background: green;
+}
 </style>
