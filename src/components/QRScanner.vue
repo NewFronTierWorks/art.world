@@ -6,7 +6,9 @@
             <v-card-title>{{artData.titleText}}</v-card-title>
             <v-card-subtitle>{{artData.classification}}</v-card-subtitle>
             <v-card-text>
-                <v-img :src="artData.imageLink"/>
+                <a :href="artData.imageLink" target="_blank">
+                    <v-img :src="artData.imageLink"/>
+                </a>
             </v-card-text>
             <v-card-text>
                 <h2>By {{artData.creatorIdentity}} - {{artData.creatorRole}}</h2>
