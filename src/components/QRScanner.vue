@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row class="pa-8">
       <v-col cols="12" lg="6" sm="12">
-          <v-card>
+          <v-card class="mb-3">
               <v-card-title>Mint NFT Token of Digital Art Collectible</v-card-title>
               <v-card-subtitle>NFT ownership DOES NOT represent real world artwork ownership.</v-card-subtitle>
               <v-card-text>
@@ -38,7 +38,7 @@
       <v-col cols="12" lg="6" sm="12">
         <v-card class="mb-3"> </v-card>
         <v-card class="pa-5 mx-auto" max-width="600px">
-          <v-card-title>Artwork Code Scanner</v-card-title>
+          <v-card-title><h1>Artwork Code Scanner</h1></v-card-title>
           <p class="error">{{ error }}</p>
 
           <qrcode-stream @decode="onDecode" @init="onInit" />
