@@ -20,7 +20,7 @@
             </v-col>
             <v-col cols="12" sm="6">
                 <v-card>
-                    <qr-generator tokenAddress="QmX1x3Y7kAzfiRskJxM11pVu2cKYHyvTj7ZhGFJ7kXbW9h"/>
+                    <qr-generator tokenAddress="QmW2E7Hq9WgbvGR6pFwL3pWR9LC1gi5tokQ2LSrFPYSV5P"/>
                 </v-card>
             </v-col> 
         </v-row>
