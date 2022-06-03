@@ -2,22 +2,6 @@
 <v-container fluid >
 <v-row class="pa-8">
     <v-col cols="12" lg="6" sm="12">
-    <v-card class="mb-3">
-    </v-card>
-        <v-card class="pa-5 mx-auto" max-width="600px">
-            <v-card-title>Artwork Code Scanner</v-card-title>
-            <p class="error">{{ error }}</p>
-
-            <qrcode-stream @decode="onDecode" @init="onInit" />
-            <h4 class="mt-2">Please scan the QR Code located on each artwork description to capture the IPFS address of the metadata for the digital version of this work.</h4>
-        </v-card > 
-                <v-card  dark class="pa-5 mt-3" v-show="haveScan">
-                    <h2  class="decode-result">Scan Result:<br> <b>{{ result }}</b></h2>
-           
-                </v-card>
-    </v-col>
- 
-    <v-col cols="12" lg="6" sm="12">
         <v-card v-show="haveScan">
             <v-card-title>{{artData.titleText}}</v-card-title>
             <v-card-subtitle>{{artData.classification}}</v-card-subtitle>
@@ -29,7 +13,24 @@
                 <h3>{{artData.creationDate}}</h3>
             </v-card-text>
         </v-card>
+        <v-card  dark class="pa-5 mt-3" v-show="haveScan">
+            <h2  class="decode-result">Scan Result:<br> <b>{{ result }}</b></h2>
+    
+        </v-card>
     </v-col>
+    <v-col cols="12" lg="6" sm="12">
+    <v-card class="mb-3">
+    </v-card>
+        <v-card class="pa-5 mx-auto" max-width="600px">
+            <v-card-title>Artwork Code Scanner</v-card-title>
+            <p class="error">{{ error }}</p>
+
+            <qrcode-stream @decode="onDecode" @init="onInit" />
+            <h4 v-show="!haveScan" class="mt-2">Please scan the QR Code located on each artwork description to capture the IPFS address of the metadata for the digital version of this work.</h4>
+            <h4 v-show="haveScan" class="mt-2">Scan Another Artwork</h4>
+        </v-card > 
+    </v-col>
+ 
     </v-row>
 </v-container>
 </template>
