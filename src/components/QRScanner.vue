@@ -2,6 +2,17 @@
   <v-container fluid>
     <v-row class="pa-8">
       <v-col cols="12" lg="6" sm="12">
+          <v-card>
+              <v-card-title>Mint NFT Token of Digital Art Collectible</v-card-title>
+              <v-card-subtitle>NFT ownership DOES NOT represent real world artwork ownership.</v-card-subtitle>
+              <v-card-text>
+                  <h2>Current Price to Mint on Tezos: {{currentPriceToMint}} XTZ</h2>
+                  <h3>Current Number of Tokens on Tezos: {{numberOfTokens}}</h3>
+              </v-card-text>
+                  <v-card-actions>
+                  <v-btn @click="mintNftTezos" dark color="orange" block>Mint Token On Tezos</v-btn>
+                  </v-card-actions>
+          </v-card>
         <v-card v-show="haveScan">
           <v-card-title>{{ artData.titleText }}</v-card-title>
           <v-card-subtitle>{{ artData.classification }}</v-card-subtitle>
@@ -52,6 +63,8 @@ export default {
   components: { QrcodeStream },
   data() {
     return {
+        numberOfTokens: 0,
+        currentPriceToMint: 1,
       validJWT: false,
       haveScan: false,
       result: {},
@@ -64,6 +77,11 @@ export default {
       }
   },
   methods: {
+      mintNftTezos ( ) {
+          alert('Mint Token On Tezos')
+          this.numberOfTokens++
+          this.currentPriceToMint = this.numberOfTokens
+      },
     async onDecode(result) {
       this.result = result;
       console.log(this.result);
