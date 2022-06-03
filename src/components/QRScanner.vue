@@ -16,11 +16,16 @@
     </v-col>
  
     <v-col cols="12" lg="6" sm="12">
-        <v-card>
+        <v-card >
             <v-card-title>{{artData.titleText}}</v-card-title>
             <v-card-subtitle>{{artData.classification}}</v-card-subtitle>
             <v-card-text>
                 <v-img :src="artData.imageLink"/>
+            </v-card-text>
+            <v-card-text>
+                <h2>By {{artData.creatorIdentity}}</h2>
+                <p>{{artData.creatorRole}}</p>
+                <p>{{artData.creatorDescription}}</p>
             </v-card-text>
 
 
