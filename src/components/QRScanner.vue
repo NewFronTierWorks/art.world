@@ -44,8 +44,7 @@
           <qrcode-stream @decode="onDecode" @init="onInit" />
           <h4 v-show="!haveScan" class="mt-2">
             Please scan the QR Code located on each artwork description to
-            capture the IPFS address of the metadata for the digital version of
-            this work.
+            capture the IPFS address of the metadata and the digital version.
           </h4>
           <h4 v-show="haveScan" class="mt-2">Scan Another Artwork</h4>
 
