@@ -117,25 +117,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.error {
-  font-weight: bold;
-  color: red;
-}
-.Red {
-  background: #c00000;
-}
-.Gold {
-  background: gold;
-}
-.Purple {
-  background: purple;
-}
-.Black {
-  background: black;
-}
-.Undefined {
-  background: green;
-}
-</style>
