@@ -1,12 +1,12 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" sm="6">
+      <v-col cols="12" sm="12" lg="6">
         <v-card>
           <v-card-title>CDWA-NFTW IPFS Token Creator</v-card-title>
           <v-card-text>
             <v-row>
-              <v-col cols="12" sm="12">
+              <v-col cols="12" sm="12" >
                   <v-card dark class="pa-4">
 
                 <v-text-field
@@ -104,17 +104,7 @@
           </v-card-actions>
         </v-card>
       </v-col>
-      <v-col cols="12" sm="6">
-        <v-card>
-            <v-card-title>
-
-          <h1 class="ma-3">Example Art QR Code:</h1>
-            </v-card-title>
-          <qr-generator
-            tokenAddress="QmW2E7Hq9WgbvGR6pFwL3pWR9LC1gi5tokQ2LSrFPYSV5P"
-          />
-        </v-card>
-      </v-col>
+    
     </v-row>
   </v-container>
 </template>
@@ -122,10 +112,10 @@
 
 <script>
 import CdwaNftwSchema from "@/assets/CDWA-NFTW-schema.json";
-import QrGenerator from "../components/QrGenerator.vue";
+// import QrGenerator from "../components/QrGenerator.vue";
 export default {
   name: "TokenForm",
-  components: { QrGenerator },
+//   components: { QrGenerator },
   data() {
     return {
       ImageFile: {},

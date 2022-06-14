@@ -10,7 +10,7 @@
   import ConnectWallet from '../components/ConnectWallet'
 
   export default {
-    name: 'HomeView',
+    name: 'EntryWay',
 
     components: {
       StartMenuBox,
