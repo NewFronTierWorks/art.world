@@ -2,7 +2,14 @@
 <v-container class="fill-height" dark>
     <v-row align="center" justify="center" class="fill-height">
       <div class="container">
+        <v-card class="pa-3 ma-2">      
         <qr-generator tokenAddress="QmW2E7Hq9WgbvGR6pFwL3pWR9LC1gi5tokQ2LSrFPYSV5P"/>
+
+        </v-card>
+        <v-card class="pa-3 ma-2">      
+
+        <qr-generator tokenAddress="QmTE3dBWWXsAyWPxkDaDZxwuGTDUe6MjYAaW2Fe9NRknJJ"/>
+        </v-card>
       </div>
     </v-row>
 </v-container>
