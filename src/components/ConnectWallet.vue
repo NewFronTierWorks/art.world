@@ -3,7 +3,7 @@
     <v-row align="center" justify="center" class="fill-height">
       <v-card class="pa-3 mt-12" width="400px">
           <v-card-text>
-              <p>Connect your wallet to view your collection.</p>
+              <h3>Connect your wallet to view your collection.</h3>
           </v-card-text>
             <v-btn 
             color="blue" 
@@ -26,6 +26,8 @@
             >
                 Connect Polygon Wallet
             </v-btn>
+
+         
       </v-card>
     </v-row>
  </v-container>
@@ -34,11 +36,18 @@
 <script>
 import { TezosToolkit } from '@taquito/taquito';
 
+import DemoSet from '../assets/artwork-example-QmX8aqQfqED84SwucgXPRa54rZECJ3QaFQJq8Pdjbv3J7n.json'
+
 export default {
   name: 'ConnectWallet',
 
-  data: () => ({
-  }),
+  data () {
+      return {
+      }
+    },
+  mounted () {
+    this.DemoSet = DemoSet
+  },
   methods: {
       connectTezosWallet ( ) {
           console.log("Connect Tezos Wallet")
