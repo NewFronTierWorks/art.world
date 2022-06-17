@@ -26,6 +26,10 @@
               By {{ artData.creatorIdentity }} - {{ artData.creatorRole }}
             </h2>
             <h3>{{ artData.creationDate }}</h3>
+            <h3>{{ artData.dimensionsDescription }}</h3>
+            <h4>{{ artData.materialsTechniquesDescription }}</h4>
+
+          <p>Known Location: {{artData.repositoryGeographicLocation}}</p>
           </v-card-text>
         </v-card>
         <v-card dark class="pa-5 mt-3" v-show="haveScan">

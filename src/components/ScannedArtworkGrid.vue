@@ -16,10 +16,7 @@
               By {{ artwork.creatorIdentity }} - {{ artwork.creatorRole }}
             </h2>
             <h3>{{ artwork.creationDate }}</h3>
-            <h3>{{ artwork.dimensionsDescription }}</h3>
-            <h4>{{ artwork.materialsTechniquesDescription }}</h3>
-
-          <p>Known Location: {{artwork.repositoryGeographicLocation}}</p>
+            
           </v-card-text>
         </v-card>
         <v-card dark class="pa-5 mt-3">
