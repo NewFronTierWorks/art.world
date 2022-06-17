@@ -11,6 +11,11 @@
 
       <v-spacer></v-spacer>
 
+      <v-btn class="d-flex align-center" to="/demo">
+      Demo
+      </v-btn>
+      <v-spacer></v-spacer>
+
       <v-btn
         href="https://newfrontierworks.com"
         target="_blank"
