@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row class="pa-8">
       <v-col cols="12" lg="6" sm="12">
-          <v-card class="mb-3">
+          <v-card class="mb-3" v-show="haveScan">
               <v-card-title>Mint NFT Token of Digital Art Collectible</v-card-title>
               <v-card-subtitle>NFT ownership DOES NOT represent real world artwork ownership.</v-card-subtitle>
               <v-card-text>

@@ -10,7 +10,7 @@
             class="my-3"
             dark
             block
-            @click="connectWallet"
+            @click="connectTezosWallet"
             
             >
                 Connect Tezos Wallet
@@ -21,7 +21,7 @@
             class="my-3"
             dark
             block
-            @click="connectWallet"
+            @click="connectPolygonWallet"
             
             >
                 Connect Polygon Wallet
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { TezosToolkit } from '@taquito/taquito';
 
 export default {
   name: 'ConnectWallet',
@@ -39,9 +40,15 @@ export default {
   data: () => ({
   }),
   methods: {
-      connectWallet ( ) {
+      connectTezosWallet ( ) {
+          console.log("Connect Tezos Wallet")
+          alert("Connect Tezos Wallet")
+          const Tezos = new TezosToolkit('https://testnet-tezos.giganode.io');
+          console.log(Tezos)
+      },
+      connectPolygonWallet ( ) {
           console.log("Connect Wallet")
-          alert("Connect Wallet")
+          alert("Connect Polygon Wallet")
       }
   }
 }
