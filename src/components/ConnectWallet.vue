@@ -3,7 +3,7 @@
     <v-row align="center" justify="center" class="fill-height">
       <v-card class="pa-3 mt-12" width="400px">
           <v-card-text>
-              <h3>Connect your wallet to view your collection.</h3>
+              <h3>Connect your wallet to view your personal NFT collection.</h3>
           </v-card-text>
             <v-btn 
             color="blue" 
@@ -17,6 +17,16 @@
             </v-btn>
             <v-spacer></v-spacer>
             <v-btn 
+            color="grey" 
+            class="my-3"
+            dark
+            block
+            @click="connectEthereumWallet"
+            
+            >
+                Connect Ethereum Wallet
+            </v-btn>
+            <v-btn 
             color="purple" 
             class="my-3"
             dark
@@ -25,6 +35,16 @@
             
             >
                 Connect Polygon Wallet
+            </v-btn>
+            <v-btn 
+            color="green" 
+            class="my-3"
+            dark
+            block
+            @click="connectRinkebyWallet"
+            
+            >
+                Connect Rinkeby Testnet Wallet
             </v-btn>
 
          
@@ -55,9 +75,17 @@ export default {
           const Tezos = new TezosToolkit('https://testnet-tezos.giganode.io');
           console.log(Tezos)
       },
+      connectEthereumWallet ( ) {
+          console.log("Connect Wallet")
+          alert("Connect Ethereum Wallet")
+      },
       connectPolygonWallet ( ) {
           console.log("Connect Wallet")
           alert("Connect Polygon Wallet")
+      },
+      connectRinkebyWallet ( ) {
+          console.log("Connect Wallet")
+          alert("Connect Rinkeby Wallet")
       }
   }
 }
