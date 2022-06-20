@@ -49,7 +49,39 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "tokenCreator" */ '../views/TokenCreator.vue')
-  }
+  },
+  {
+    path: '/tezos-wallet-collection',
+    name: 'tezosWalletCollection',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "tezosWalletCollection" */ '../views/wallets/TezosWalletCollection.vue')
+  },
+  {
+    path: '/ethereum-wallet-collection',
+    name: 'ethereumWalletCollection',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "ethereumWalletCollection" */ '../views/wallets/EthereumWalletCollection.vue')
+  },
+  {
+    path: '/polygon-wallet-collection',
+    name: 'polygonWalletCollection',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "polygonWalletCollection" */ '../views/wallets/PolygonWalletCollection.vue')
+  },
+  {
+    path: '/rinkeby-wallet-collection',
+    name: 'rinkebyWalletCollection',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "rinkebyWalletCollection" */ '../views/wallets/RinkebyWalletCollection.vue')
+  },
 ]
 
 const router = new VueRouter({

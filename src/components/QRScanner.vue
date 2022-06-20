@@ -2,15 +2,37 @@
   <v-container fluid>
     <v-row class="pa-8">
       <v-col cols="12" lg="6" sm="12">
-          <v-card class="mb-3" v-show="haveScan">
+          <!-- <v-card class="mb-3" v-show="haveScan"> -->
+          <v-card class="mb-3" >
               <v-card-title>Mint NFT Token of Digital Art Collectible</v-card-title>
               <v-card-subtitle>NFT ownership DOES NOT represent real world artwork ownership.</v-card-subtitle>
-              <v-card-text>
-                  <h2>Current Price to Mint on Tezos: {{currentPriceToMint}} XTZ</h2>
-                  <h3>Current Number of Tokens on Tezos: {{numberOfTokens}}</h3>
+              <v-card-text >
+                  <h2 class="blue--text">Current Price to Mint on Tezos: {{currentPriceToMintTezos}} XTZ</h2>
+                  <h3>Current Number of Tokens on Tezos: {{numberOfTokensTezos}}</h3>
+              </v-card-text>
+              <v-card-text >
+                  <h2>Current Price to Mint on Ethereum: {{currentPriceToMintEthereum}} ETH</h2>
+                  <h3>Current Number of Tokens on Ethereum: {{numberOfTokensEthereum}}</h3>
+              </v-card-text>
+              <v-card-text class="purple--text">
+                  <h2>Current Price to Mint on Polygon: {{currentPriceToMintPolygon}} MATIC</h2>
+                  <h3>Current Number of Tokens on Polygon: {{numberOfTokensPolygon}}</h3>
+              </v-card-text>
+              <v-card-text >
+                  <h2 class="green--text">Current Price to Mint on Rinkeby: {{currentPriceToMintRinkeby}} ETH</h2>
+                  <h3>Current Number of Tokens on Rinkeby: {{numberOfTokensRinkeby}}</h3>
               </v-card-text>
                   <v-card-actions>
-                  <v-btn @click="mintNftTezos" dark color="orange" block>Mint Token On Tezos</v-btn>
+                  <v-btn @click="mintNftTezos" dark color="blue" block>Mint Token On Tezos</v-btn>
+                  </v-card-actions>
+                  <v-card-actions>
+                  <v-btn @click="mintNftEthereum" dark color="grey" block>Mint Token On Ethereum</v-btn>
+                  </v-card-actions>
+                  <v-card-actions>
+                  <v-btn @click="mintNftPolygon" dark color="purple" block>Mint Token On Polygon</v-btn>
+                  </v-card-actions>
+                  <v-card-actions>
+                  <v-btn @click="mintNftRinkeby" dark color="green" block>Mint Token On Rinkeby</v-btn>
                   </v-card-actions>
           </v-card>
         <v-card v-show="haveScan">
@@ -66,8 +88,14 @@ export default {
   components: { QrcodeStream },
   data() {
     return {
-        numberOfTokens: 0,
-        currentPriceToMint: 1,
+      numberOfTokensTezos: 0,
+      numberOfTokensEthereum: 0,
+      numberOfTokensPolygon: 0,
+      numberOfTokensRinkeby: 0,
+      currentPriceToMintTezos: 1,
+      currentPriceToMintEthereum: 1,
+      currentPriceToMintPolygon: 1,
+      currentPriceToMintRinkeby: 1,
       validJWT: false,
       haveScan: false,
       result: {},
@@ -82,8 +110,23 @@ export default {
   methods: {
       mintNftTezos ( ) {
           alert('Mint Token On Tezos')
-          this.numberOfTokens++
-          this.currentPriceToMint = this.numberOfTokens
+          this.numberOfTokensTezos++
+          this.currentPriceToMintTezos = this.numberOfTokensTezos
+      },
+      mintNftEthereum ( ) {
+          alert('Mint Token On Ethereum')
+          this.numberOfTokensEthereum++
+          this.currentPriceToMintEthereum = this.numberOfTokensEthereum
+      },
+      mintNftPolygon ( ) {
+          alert('Mint Token On Polygon')
+          this.numberOfTokensPolygon++
+          this.currentPriceToMintPolygon = this.numberOfTokensPolygon
+      },
+      mintNftRinkeby ( ) {
+          alert('Mint Token On Rinkeby')
+          this.numberOfTokensRinkeby++
+          this.currentPriceToMintRinkeby = this.numberOfTokensRinkeby
       },
     async onDecode(result) {
       this.result = result;

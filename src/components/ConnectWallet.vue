@@ -11,7 +11,7 @@
             class="my-3"
             dark
             block
-            @click="connectTezosWallet"
+            to="tezos-wallet-collection"
             
             >
                 Connect Tezos Wallet
@@ -22,7 +22,7 @@
             class="my-3"
             dark
             block
-            @click="connectEthereumWallet"
+            to="ethereum-wallet-collection"
             
             >
                 Connect Ethereum Wallet
@@ -32,7 +32,7 @@
             class="my-3"
             dark
             block
-            @click="connectPolygonWallet"
+            to="polygon-wallet-collection"
             
             >
                 Connect Polygon Wallet
@@ -42,7 +42,7 @@
             class="my-3"
             dark
             block
-            @click="connectRinkebyWallet"
+            to="rinkeby-wallet-collection"
             
             >
                 Connect Rinkeby Testnet Wallet
