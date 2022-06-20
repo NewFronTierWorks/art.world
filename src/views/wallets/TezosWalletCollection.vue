@@ -20,12 +20,38 @@
 </template>
 
 <script>
+import { TezosToolkit } from '@taquito/taquito';
+import { BeaconWallet } from '@taquito/beacon-wallet';
+
+const tezos = new TezosToolkit('https://ithacanet.ecadinfra.com');
+
+const options = {
+  name: 'MyAwesomeDapp',
+  iconUrl: 'https://tezostaquito.io/img/favicon.svg',
+  preferredNetwork: 'ithacanet',
+  eventHandlers: {
+    PERMISSION_REQUEST_SUCCESS: {
+      handler: async (data) => {
+        console.log('permission data:', data);
+      },
+    },
+  },
+};
+
+const wallet = new BeaconWallet(options);
+
+
 
 export default {
   name: 'TezosWalletCollection',
 
   data: () => ({
   }),
+  mounted () {
+    console.log(tezos)
+    console.log(wallet)
+ 
+  }
 }
 </script>
 
