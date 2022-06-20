@@ -2,6 +2,7 @@
   <v-container class="fill-height" dark>
     <v-row align="center" justify="center" class="fill-height">
       <v-card class="pa-3 mt-12" width="400px">
+        <v-card-title>View Your Collection</v-card-title>
           <v-card-text>
               <h3>Connect your wallet to view your personal NFT collection.</h3>
           </v-card-text>

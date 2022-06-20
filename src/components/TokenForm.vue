@@ -4,6 +4,7 @@
       <v-col cols="12" sm="12" lg="6">
         <v-card>
           <v-card-title>CDWA-NFTW IPFS Token Creator</v-card-title>
+          <v-card-subtitle>Generate and Store the artwork metadata in IPFS and create a QR Code</v-card-subtitle>
           <v-card-text>
             <v-row>
               <v-col cols="12" sm="12">

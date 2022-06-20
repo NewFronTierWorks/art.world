@@ -2,24 +2,18 @@
   <v-container class="fill-height" dark>
     <v-row align="center" justify="center" class="fill-height">
       <v-card class="pa-3 mt-12" width="400px">
-        <p>
-            <strong>NFTW</strong>-art.world allows museums, galleries and private collectors to tokenize art works using the CDWA-<strong>NFTW</strong> standard, IPFS data storage and Tezos blockchain technology for ownership proofs.  
-        </p>
+        <v-card-title>Build Your Collection</v-card-title>
+        <v-card-subtitle>Discover QR Codes of Artwork and Mint an NFT Collection</v-card-subtitle>
         <v-card-actions>
             <v-btn 
-            color="blue" 
+            color="orange" 
             dark
             to="scan-artwork"
+            block
             >
                 Scan Artwork
             </v-btn>
-            <v-spacer></v-spacer>
-            <v-btn 
-            dark
-            to="token-creator"
-            >
-                Create Token
-            </v-btn>
+          
         </v-card-actions>
       </v-card>
     </v-row>
