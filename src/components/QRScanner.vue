@@ -2,7 +2,6 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12" lg="4" sm="12">
-        <v-card class="mb-3"> </v-card>
         <v-card class="pa-5 mx-auto">
           <v-card-title><h1>Artwork Code Scanner</h1></v-card-title>
           <p class="error">{{ error }}</p>
