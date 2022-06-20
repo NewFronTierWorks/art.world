@@ -21,25 +21,10 @@
 
 <script>
 import { TezosToolkit } from '@taquito/taquito';
-import { BeaconWallet } from '@taquito/beacon-wallet';
 
-const tezos = new TezosToolkit('https://ithacanet.ecadinfra.com');
+import { TempleWallet } from '@temple-wallet/dapp';
 
-const options = {
-  name: 'MyAwesomeDapp',
-  iconUrl: 'https://tezostaquito.io/img/favicon.svg',
-  preferredNetwork: 'ithacanet',
-  eventHandlers: {
-    PERMISSION_REQUEST_SUCCESS: {
-      handler: async (data) => {
-        console.log('permission data:', data);
-      },
-    },
-  },
-};
-
-const wallet = new BeaconWallet(options);
-
+const Tezos = new TezosToolkit('https://ithacanet.ecadinfra.com');
 
 
 export default {
@@ -48,9 +33,26 @@ export default {
   data: () => ({
   }),
   mounted () {
-    console.log(tezos)
-    console.log(wallet)
+    console.log(Tezos)
+    this.getTemple();
+    this.getWallet();
  
+  },
+  methods: {
+    async getTemple () {
+      try {
+        const available = await TempleWallet.isAvailable();
+        if (!available) {
+          throw new Error('Thanos Wallet not installed');
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    getWallet () {
+      const wallet = new TempleWallet('MyAwesomeDapp'); 
+      console.log(wallet)
+    }
   }
 }
 </script>
