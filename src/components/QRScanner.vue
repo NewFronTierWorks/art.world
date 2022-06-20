@@ -23,19 +23,19 @@
                   <h3>Current Number of Tokens on Rinkeby: {{numberOfTokensRinkeby}}</h3>
               </v-card-text>
                   <v-card-actions>
-                  <v-btn @click="mintNftTezos" dark color="blue" block>Mint Token On Tezos</v-btn>
+                  <v-btn @click="mintNftTezos" dark color="blue" block :loading="loading">Mint Token On Tezos</v-btn>
                   </v-card-actions>
                   <v-card-actions>
-                  <v-btn @click="mintNftEthereum" dark color="grey" block>Mint Token On Ethereum</v-btn>
+                  <v-btn @click="mintNftEthereum" dark color="grey" block :loading="loading">Mint Token On Ethereum</v-btn>
                   </v-card-actions>
                   <v-card-actions>
-                  <v-btn @click="mintNftPolygon" dark color="purple" block>Mint Token On Polygon</v-btn>
+                  <v-btn @click="mintNftPolygon" dark color="purple" block :loading="loading">Mint Token On Polygon</v-btn>
                   </v-card-actions>
                   <v-card-actions>
-                  <v-btn @click="mintNftRinkeby" dark color="green" block>Mint Token On Rinkeby</v-btn>
+                  <v-btn @click="mintNftRinkeby" dark color="green" block :loading="loading">Mint Token On Rinkeby</v-btn>
                   </v-card-actions>
           </v-card>
-        <v-card v-show="haveScan">
+        <v-card v-show="haveScan" >
           <v-card-title>{{ artData.titleText }}</v-card-title>
           <v-card-subtitle>{{ artData.classification }}</v-card-subtitle>
           <v-card-text>
@@ -73,6 +73,11 @@
             capture the IPFS address of the metadata and the digital version.
           </h4>
           <h4 v-show="haveScan" class="mt-2">Scan Another Artwork</h4>
+          <v-progress-linear
+          v-show="loading"
+      indeterminate
+      color="yellow darken-2"
+    ></v-progress-linear>
 
         </v-card>
       </v-col>
@@ -100,6 +105,7 @@ export default {
       haveScan: false,
       result: {},
       error: "",
+      loading: false,
     };
   },
   computed: {
@@ -131,11 +137,13 @@ export default {
     async onDecode(result) {
       this.result = result;
       console.log(this.result);
-      this.haveScan = true;
+      this.loading = true;
       axios
         .get("https://nftw.mypinata.cloud/ipfs/" + this.result)
         .then((response) => (this.$store.state.scannedArtwork = response.data));
         this.artData = this.$store.state.scannedArtwork;
+      this.haveScan = true;
+     this.loading = false;
     },
     async onInit(promise) {
       try {
