@@ -14,7 +14,9 @@
           <v-btn color="blue" dark block @click="connectWallet">
             Get Wallet
           </v-btn>
-          <v-btn color="blue" dark block @click="fetchBalance">
+          </v-card-actions>
+        <v-card-actions>
+          <v-btn color="black" dark block @click="fetchBalance">
             Get Balance
           </v-btn>
         </v-card-actions>
