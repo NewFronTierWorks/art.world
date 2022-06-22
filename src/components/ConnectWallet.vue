@@ -14,7 +14,7 @@
             to="tezos-wallet-collection"
             
             >
-                Connect Tezos Wallet
+                Login with Google
             </v-btn>
             <v-spacer></v-spacer>
             <v-btn 
@@ -25,39 +25,14 @@
             to="ethereum-wallet-collection"
             
             >
-                Connect Ethereum Wallet
+                Login with NFT
             </v-btn>
-            <v-btn 
-            color="purple" 
-            class="my-3"
-            dark
-            block
-            to="polygon-wallet-collection"
-            
-            >
-                Connect Polygon Wallet
-            </v-btn>
-            <v-btn 
-            color="green" 
-            class="my-3"
-            dark
-            block
-            to="rinkeby-wallet-collection"
-            
-            >
-                Connect Rinkeby Testnet Wallet
-            </v-btn>
-
-         
       </v-card>
     </v-row>
  </v-container>
 </template>
 
 <script>
-import { TezosToolkit } from '@taquito/taquito';
-
-import DemoSet from '../assets/artwork-example-QmX8aqQfqED84SwucgXPRa54rZECJ3QaFQJq8Pdjbv3J7n.json'
 
 export default {
   name: 'ConnectWallet',
@@ -67,14 +42,11 @@ export default {
       }
     },
   mounted () {
-    this.DemoSet = DemoSet
   },
   methods: {
       connectTezosWallet ( ) {
           console.log("Connect Tezos Wallet")
           alert("Connect Tezos Wallet")
-          const Tezos = new TezosToolkit('https://testnet-tezos.giganode.io');
-          console.log(Tezos)
       },
       connectEthereumWallet ( ) {
           console.log("Connect Wallet")

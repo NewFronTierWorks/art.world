@@ -5,7 +5,7 @@
       color="black"
       dark
     >
-      <v-btn class="d-flex align-center" to="/">
+      <v-btn class="d-flex align-center" to="/entry-way">
       NFTW-art.world
       </v-btn>
 
