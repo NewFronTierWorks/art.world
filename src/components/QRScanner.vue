@@ -1,6 +1,64 @@
 <template>
   <v-container fluid>
     <v-row>
+      <v-col cols="12" lg="4" sm="12" v-show="haveScan">
+        <v-card>
+          <v-card-title>{{ artData.titleText }}</v-card-title>
+          <v-card-subtitle>{{ artData.classification }}</v-card-subtitle>
+          <v-card-text>
+            <a :href="artData.imageLink" target="_blank">
+              <v-img :src="artData.imageLink" />
+            </a>
+          </v-card-text>
+          <v-card-text>
+            <h2>
+              By {{ artData.creatorIdentity }} - {{ artData.creatorRole }}
+            </h2>
+            <h3>{{ artData.creationDate }}</h3>
+            <h3>{{ artData.dimensionsDescription }}</h3>
+            <h4>{{ artData.materialsTechniquesDescription }}</h4>
+  
+            <p>Current Location: {{ artData.repositoryGeographicLocation }}</p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" lg="4" sm="12" v-show="haveScan">
+      <!-- <v-col cols="12" lg="4" sm="12" > -->
+        <v-card dark class="pa-5 mt-3" v-show="haveScan">
+          <h2 class="decode-result">
+            Scan Result:<br />
+            <b>{{ result }}</b>
+          </h2>
+        </v-card>
+        <v-card class="mb-3">
+          <!-- <v-card class="mb-3" > -->
+          <v-card-title>Mint a Digital Art Collectible</v-card-title>
+          <v-card-subtitle
+            >Digital Art Collectible ownership DOES NOT represent real world artwork
+            ownership.</v-card-subtitle
+          >
+          <v-card-text>
+            <h2 class="blue--text">
+              Current Minimum Price to Mint: $ {{ currentPriceToMint }} 
+            </h2>
+            <h3>
+              Current Number of Tokens: {{ numberOfTokens }}
+            </h3>
+          </v-card-text>
+          
+          <v-card-actions>
+            <v-btn
+              @click="mintToken"
+              dark
+              color="blue"
+              block
+              :loading="loading"
+              >Collect Artwork</v-btn
+            >
+          </v-card-actions>
+      
+        </v-card>
+      </v-col>
       <v-col cols="12" lg="4" sm="12">
         <v-card class="pa-5 mx-auto">
           <v-card-title><h1>Artwork Code Scanner</h1></v-card-title>
@@ -19,118 +77,6 @@
           ></v-progress-linear>
         </v-card>
       </v-col>
-      <v-col cols="12" lg="4" sm="12" v-show="haveScan">
-        <v-card class="mb-3">
-          <!-- <v-card class="mb-3" > -->
-          <v-card-title>Mint NFT Token of Digital Art Collectible</v-card-title>
-          <v-card-subtitle
-            >NFT ownership DOES NOT represent real world artwork
-            ownership.</v-card-subtitle
-          >
-          <v-card-text>
-            <h2 class="blue--text">
-              Current Price to Mint on Tezos: {{ currentPriceToMintTezos }} XTZ
-            </h2>
-            <h3>
-              Current Number of Tokens on Tezos: {{ numberOfTokensTezos }}
-            </h3>
-          </v-card-text>
-          <v-card-text>
-            <h2>
-              Current Price to Mint on Ethereum:
-              {{ currentPriceToMintEthereum }} ETH
-            </h2>
-            <h3>
-              Current Number of Tokens on Ethereum: {{ numberOfTokensEthereum }}
-            </h3>
-          </v-card-text>
-          <v-card-text class="purple--text">
-            <h2>
-              Current Price to Mint on Polygon:
-              {{ currentPriceToMintPolygon }} MATIC
-            </h2>
-            <h3>
-              Current Number of Tokens on Polygon: {{ numberOfTokensPolygon }}
-            </h3>
-          </v-card-text>
-          <v-card-text>
-            <h2 class="green--text">
-              Current Price to Mint on Rinkeby:
-              {{ currentPriceToMintRinkeby }} ETH
-            </h2>
-            <h3>
-              Current Number of Tokens on Rinkeby: {{ numberOfTokensRinkeby }}
-            </h3>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn
-              @click="mintNftTezos"
-              dark
-              color="blue"
-              block
-              :loading="loading"
-              >Mint Token On Tezos</v-btn
-            >
-          </v-card-actions>
-          <v-card-actions>
-            <v-btn
-              @click="mintNftEthereum"
-              dark
-              color="grey"
-              block
-              :loading="loading"
-              >Mint Token On Ethereum</v-btn
-            >
-          </v-card-actions>
-          <v-card-actions>
-            <v-btn
-              @click="mintNftPolygon"
-              dark
-              color="purple"
-              block
-              :loading="loading"
-              >Mint Token On Polygon</v-btn
-            >
-          </v-card-actions>
-          <v-card-actions>
-            <v-btn
-              @click="mintNftRinkeby"
-              dark
-              color="green"
-              block
-              :loading="loading"
-              >Mint Token On Rinkeby</v-btn
-            >
-          </v-card-actions>
-        </v-card>
-      </v-col>
-      <v-col cols="12" lg="4" sm="12" v-show="haveScan">
-        <v-card>
-          <v-card-title>{{ artData.titleText }}</v-card-title>
-          <v-card-subtitle>{{ artData.classification }}</v-card-subtitle>
-          <v-card-text>
-            <a :href="artData.imageLink" target="_blank">
-              <v-img :src="artData.imageLink" />
-            </a>
-          </v-card-text>
-          <v-card-text>
-            <h2>
-              By {{ artData.creatorIdentity }} - {{ artData.creatorRole }}
-            </h2>
-            <h3>{{ artData.creationDate }}</h3>
-            <h3>{{ artData.dimensionsDescription }}</h3>
-            <h4>{{ artData.materialsTechniquesDescription }}</h4>
-
-            <p>Known Location: {{ artData.repositoryGeographicLocation }}</p>
-          </v-card-text>
-        </v-card>
-        <v-card dark class="pa-5 mt-3" v-show="haveScan">
-          <h2 class="decode-result">
-            Scan Result:<br />
-            <b>{{ result }}</b>
-          </h2>
-        </v-card>
-      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -143,14 +89,8 @@ export default {
   components: { QrcodeStream },
   data() {
     return {
-      numberOfTokensTezos: 0,
-      numberOfTokensEthereum: 0,
-      numberOfTokensPolygon: 0,
-      numberOfTokensRinkeby: 0,
-      currentPriceToMintTezos: 1,
-      currentPriceToMintEthereum: 1,
-      currentPriceToMintPolygon: 1,
-      currentPriceToMintRinkeby: 1,
+      numberOfTokens: 0,
+      currentPriceToMint: 1,
       validJWT: false,
       haveScan: false,
       result: {},
@@ -165,9 +105,9 @@ export default {
   },
   methods: {
     mintNftTezos() {
-      alert("Mint Token On Tezos");
-      this.numberOfTokensTezos++;
-      this.currentPriceToMintTezos = this.numberOfTokensTezos;
+      alert("Mint Digital Collectiblespee");
+      this.numberOfTokens++;
+      this.currentPriceToMint = this.numberOfTokens;
     },
     mintNftEthereum() {
       alert("Mint Token On Ethereum");
