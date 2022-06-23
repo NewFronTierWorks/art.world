@@ -35,6 +35,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "entryWay" */ '../views/EntryWay.vue')
   },
   {
+    path: '/view-collection',
+    name: 'viewCollection',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "viewCollection" */ '../views/CollectionView.vue')
+  },
+  {
     path: '/scan-artwork',
     name: 'scanArtwork',
     // route level code-splitting

@@ -5,7 +5,7 @@
         <v-card-title>For Museums and Galleries</v-card-title>
         <v-card-text>
             <p>
-            <strong>NFTW</strong>-art.world allows museums, galleries and private collectors to tokenize art works using the CDWA-<strong>NFTW</strong> standard, IPFS data storage and Tezos blockchain technology for ownership proofs.  
+            <strong>NFTW</strong>-art.world allows museums, galleries and private collectors to tokenize art works using the <br> CDWA-<strong>NFTW</strong> standard and IPFS data storage.  
         </p>
         </v-card-text>
         <v-card-actions>

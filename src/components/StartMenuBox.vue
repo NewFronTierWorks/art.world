@@ -3,7 +3,7 @@
     <v-row align="center" justify="center" class="fill-height">
       <v-card class="pa-3 mt-12" width="400px">
         <v-card-title>Build Your Collection</v-card-title>
-        <v-card-subtitle>Discover QR Codes of Artwork and Mint an NFT Collection</v-card-subtitle>
+        <v-card-subtitle>Discover NFTW-Art.World QR Codes of Artwork and Mint a Digital Art Collection</v-card-subtitle>
         <v-card-actions>
             <v-btn 
             color="orange" 
