@@ -3,7 +3,7 @@
     <v-row>
       <!-- <v-col cols="12" lg="4" sm="12" v-show="haveScan"> -->
       <v-col cols="12" lg="4" sm="12" >
-        <collection-grid></collection-grid>
+        <scanned-artwork-grid></scanned-artwork-grid>
       </v-col>
       <!-- <v-col cols="12" lg="4" sm="12" v-show="haveScan"> -->
       <v-col cols="12" lg="4" sm="12" >
@@ -39,14 +39,14 @@
 
 <script>
 import { QrcodeStream } from "vue-qrcode-reader";
-import CollectionGrid from './CollectionGrid'
+import ScannedArtworkGrid from './ScannedArtworkGrid'
 import SaveToken from './SaveToken'
 import axios from "axios";
 
 import {store} from '../store'
 
 export default {
-  components: { QrcodeStream, CollectionGrid, SaveToken },
+  components: { QrcodeStream, ScannedArtworkGrid, SaveToken },
   data() {
     return {
       numberOfTokens: 0,

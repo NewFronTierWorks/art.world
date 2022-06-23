@@ -14,5 +14,8 @@ export const store = {
       materialsTechniquesDescription: 'materialsTechniquesDescription',
       repositoryGeographicLocation: 'repositoryGeographicLocation'
     }
+  ],
+  artworkCollection: [
+
   ]
 };

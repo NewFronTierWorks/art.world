@@ -15,6 +15,10 @@
       Demo
       </v-btn>
       <v-spacer></v-spacer>
+      <v-btn class="d-flex align-center" to="/view-collection">
+      View Collection
+      </v-btn>
+      <v-spacer></v-spacer>
 
       <v-btn
         href="https://newfrontierworks.com"
