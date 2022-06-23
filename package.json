@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@google-pay/button-element": "^3.0.0",
     "@pinata/sdk": "^1.1.25",
     "@taquito/beacon-wallet": "^13.0.0",
     "@taquito/taquito": "^12.1.1",
@@ -30,6 +31,7 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "vue": "^2.6.14",
+    "vue-google-pay": "^0.0.2",
     "vue-qrcode-reader": "^3.1.0",
     "vue-router": "^3.5.1",
     "vuefire": "^2.2.5",

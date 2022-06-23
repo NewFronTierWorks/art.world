@@ -13,34 +13,7 @@
             <b>{{ result }}</b>
           </h2>
         </v-card>
-        <v-card class="mb-3">
-          <!-- <v-card class="mb-3" > -->
-          <v-card-title>Mint a Digital Art Collectible</v-card-title>
-          <v-card-subtitle
-            >Digital Art Collectible ownership DOES NOT represent real world artwork
-            ownership.</v-card-subtitle
-          >
-          <v-card-text>
-            <h2 class="blue--text">
-              Current Minimum Price to Mint: $ {{ currentPriceToMint }} 
-            </h2>
-            <h3>
-              Current Number of Tokens: {{ numberOfTokens }}
-            </h3>
-          </v-card-text>
-          
-          <v-card-actions>
-            <v-btn
-              @click="mintToken"
-              dark
-              color="blue"
-              block
-              :loading="loading"
-              >Collect Artwork</v-btn
-            >
-          </v-card-actions>
-      
-        </v-card>
+        <save-token></save-token>
       </v-col>
       <v-col cols="12" lg="4" sm="12">
         <v-card class="pa-5 mx-auto">
@@ -67,12 +40,13 @@
 <script>
 import { QrcodeStream } from "vue-qrcode-reader";
 import CollectionGrid from './CollectionGrid'
+import SaveToken from './SaveToken'
 import axios from "axios";
 
 import {store} from '../store'
 
 export default {
-  components: { QrcodeStream, CollectionGrid },
+  components: { QrcodeStream, CollectionGrid, SaveToken },
   data() {
     return {
       numberOfTokens: 0,
