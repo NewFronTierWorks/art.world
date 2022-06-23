@@ -1,29 +1,12 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col cols="12" lg="4" sm="12" v-show="haveScan">
-        <v-card>
-          <v-card-title>{{ artData.titleText }}</v-card-title>
-          <v-card-subtitle>{{ artData.classification }}</v-card-subtitle>
-          <v-card-text>
-            <a :href="artData.imageLink" target="_blank">
-              <v-img :src="artData.imageLink" />
-            </a>
-          </v-card-text>
-          <v-card-text>
-            <h2>
-              By {{ artData.creatorIdentity }} - {{ artData.creatorRole }}
-            </h2>
-            <h3>{{ artData.creationDate }}</h3>
-            <h3>{{ artData.dimensionsDescription }}</h3>
-            <h4>{{ artData.materialsTechniquesDescription }}</h4>
-  
-            <p>Current Location: {{ artData.repositoryGeographicLocation }}</p>
-          </v-card-text>
-        </v-card>
+      <!-- <v-col cols="12" lg="4" sm="12" v-show="haveScan"> -->
+      <v-col cols="12" lg="4" sm="12" >
+        <collection-grid></collection-grid>
       </v-col>
-      <v-col cols="12" lg="4" sm="12" v-show="haveScan">
-      <!-- <v-col cols="12" lg="4" sm="12" > -->
+      <!-- <v-col cols="12" lg="4" sm="12" v-show="haveScan"> -->
+      <v-col cols="12" lg="4" sm="12" >
         <v-card dark class="pa-5 mt-3" v-show="haveScan">
           <h2 class="decode-result">
             Scan Result:<br />
@@ -64,7 +47,7 @@
           <v-card-title><h1>Artwork Code Scanner</h1></v-card-title>
           <p class="error">{{ error }}</p>
 
-          <qrcode-stream @decode="onDecode" @init="onInit" />
+          <qrcode-stream @decode="onDecode" @init="onInit" :aspect-ratio="1"/>
           <h4 v-show="!haveScan" class="mt-2">
             Please scan the QR Code located on each artwork description to
             capture the IPFS address of the metadata and the digital version.
@@ -83,10 +66,13 @@
 
 <script>
 import { QrcodeStream } from "vue-qrcode-reader";
+import CollectionGrid from './CollectionGrid'
 import axios from "axios";
 
+import {store} from '../store'
+
 export default {
-  components: { QrcodeStream },
+  components: { QrcodeStream, CollectionGrid },
   data() {
     return {
       numberOfTokens: 0,
@@ -96,42 +82,25 @@ export default {
       result: {},
       error: "",
       loading: false,
+      store
     };
   },
-  computed: {
-    artData() {
-      return this.$store.state.scannedArtwork;
-    },
-  },
+
   methods: {
-    mintNftTezos() {
-      alert("Mint Digital Collectiblespee");
+    mintToken() {
+      alert("Mint Digital Collectible");
       this.numberOfTokens++;
       this.currentPriceToMint = this.numberOfTokens;
-    },
-    mintNftEthereum() {
-      alert("Mint Token On Ethereum");
-      this.numberOfTokensEthereum++;
-      this.currentPriceToMintEthereum = this.numberOfTokensEthereum;
-    },
-    mintNftPolygon() {
-      alert("Mint Token On Polygon");
-      this.numberOfTokensPolygon++;
-      this.currentPriceToMintPolygon = this.numberOfTokensPolygon;
-    },
-    mintNftRinkeby() {
-      alert("Mint Token On Rinkeby");
-      this.numberOfTokensRinkeby++;
-      this.currentPriceToMintRinkeby = this.numberOfTokensRinkeby;
     },
     async onDecode(result) {
       this.result = result;
       console.log(this.result);
       this.loading = true;
+      this.store.scannedArtwork = [];
       axios
         .get("https://nftw.mypinata.cloud/ipfs/" + this.result)
-        .then((response) => (this.$store.state.scannedArtwork = response.data));
-      this.artData = this.$store.state.scannedArtwork;
+        .then((response) => this.store.scannedArtwork.push(response.data));
+      console.log(this.store.scannedArtwork)
       this.haveScan = true;
       this.loading = false;
     },
